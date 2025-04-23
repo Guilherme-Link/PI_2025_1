@@ -6,10 +6,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/teste', function () {
-    return view('teste');
-});
-
 Route::get('/cadastroProduto', function () {
     return view('cadastroProduto');
 });

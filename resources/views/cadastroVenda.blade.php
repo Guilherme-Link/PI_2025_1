@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastro de Venda</title>
-  <link rel="stylesheet" href="{{ asset('/css/cadastro.css') }}">
-  <link rel="stylesheet" href="{{ asset('/css/cadastroVenda.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/cadastro.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/cadastroVenda.css') }}">
 
 </head>
 <body>
@@ -16,7 +16,7 @@
     </div>
     <div class="right">
         <div class="formulario">
-          <h1><strong>Cadastro de Venda</strong></h1>
+          <h1>Cadastro de Venda</h1>
           <div class="linha">
             <div class="campo">
               <label for="produto">Produto:</label>

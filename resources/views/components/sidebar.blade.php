@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="{{ asset('/css/sidebarstyle.css') }}">
-<script src="{{ asset('/js/sidebar.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('css/sidebarstyle.css') }}">
 
 <nav id="sidebar">
     <ul>
@@ -23,9 +22,9 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="#">Produto</a></li>
-            <li><a href="#">Fornecedor</a></li>
-            <li><a href="#">Venda</a></li>
+            <li><a href="/cadastroProduto">Produto</a></li>
+            <li><a href="/cadastroFornecedor">Fornecedor</a></li>
+            <li><a href="/cadastroVenda">Venda</a></li>
           </div>
         </ul>
       </li>

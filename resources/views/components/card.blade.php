@@ -28,7 +28,7 @@
     "card1 card2 card3";
     justify-content: center;
     gap: 20px;
-    margin-left: 60px;
+    margin-left: 1vw;
     font-family: 'Poppins', sans-serif;
 }
 

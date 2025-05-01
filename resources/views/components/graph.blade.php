@@ -14,7 +14,7 @@
   .chart-container {
     height: 50vh;
     width: 70vw;
-    margin-left: 10px;
+
     padding: 20px ;
     background-color: white;
     border-radius: 5px;

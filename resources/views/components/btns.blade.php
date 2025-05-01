@@ -16,7 +16,7 @@
     justify-content: center;
     
     gap: 20px;
-    margin: 50px 0px 50px 60px;
+    margin: 50px 0px 50px 1vw;
     
   }
 

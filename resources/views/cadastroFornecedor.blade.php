@@ -11,7 +11,7 @@
 
   <div class="container">
     <div class="left">
-    <img src="https://cdn-icons-png.freepik.com/512/11865/11865005.png" alt="caminhao azul">
+    <img src="{{ asset('imgs/caminhoazinhoAzul.png') }}" alt="caminhao azul">
     </div>
     <div class="right">
       <h1>Cadastro de fornecedor</h1>

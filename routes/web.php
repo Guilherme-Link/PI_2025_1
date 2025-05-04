@@ -17,6 +17,11 @@ Route::get('/cadastroVenda', function () {
 Route::get('/cadastroFornecedor', function () {
     return view('cadastroFornecedor');
 });
+Route::get('/modalTeste', function () {
+    return view('modalTeste');
+});
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -12,7 +12,7 @@
 
   <div class="container">
     <div class="left">
-      <img src="https://wdatechnology.com/wp-content/uploads/2023/03/19.png" alt="Celular na mão">
+      <img src="{{ asset('imgs/maozinhaCelular.png') }}" alt="Celular na mão">
     </div>
     <div class="right">
       <h1>Cadastro de produto</h1>

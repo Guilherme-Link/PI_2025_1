@@ -12,7 +12,7 @@
 <a href="/" class="back-button">Voltar</a>
   <div class="container">
     <div class="left">  
-          <img src="https://cdn3d.iconscout.com/3d/premium/thumb/mao-com-dinheiro-10719529-8591522.png" alt="Venda" />
+          <img src="{{ asset('imgs/maozinhaDinheiro.png') }}" alt="Venda" />
     </div>
     <div class="right">
         <div class="formulario">

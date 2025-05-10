@@ -16,37 +16,37 @@
     </div>
     <div class="right">
       <h1>Cadastro de produto</h1>
-      <form>
+      <form action="" method="POST">
         <div>
           <label for="modelo">Modelo:</label>
-          <input type="text" id="modelo" name="modelo">
+          <input type="text" id="modelo" name="modelo" required>
         </div>
         <div>
           <label for="marca">Marca:</label>
-          <input type="text" id="marca" name="marca">
+          <input type="text" id="marca" name="marca" required>
         </div>
         <div>
           <label for="preco">Preço:</label>
-          <input type="text" id="preco" name="preco">
+          <input type="number" id="preco" name="preco">
         </div>
         <div>
           <label for="quantidade">Quantidade:</label>
-          <input type="text" id="quantidade" name="quantidade">
+          <input type="number" id="quantidade" name="quantidade">
         </div>
         <div>
           <label for="codigo">Código do produto:</label>
-          <input type="text" id="codigo" name="codigo">
+          <input type="text" id="codigo" name="codigo" required>
         </div>
         <div>
           <label for="fornecedor">Fornecedor:</label>
-          <input type="text" id="fornecedor" name="fornecedor">
+          <input type="text" id="fornecedor" name="fornecedor" required>
         </div>
         <div>
           <label for="garantia">Garantia:</label>
-          <input type="text" id="garantia" name="garantia">
+          <input type="text" id="garantia" name="garantia" required>
         </div>
         <div class="button-container">
-          <button type="submit">Cadastrar</button>
+          <button type="submit">Cadastrar Produto</button>
         </div>
       </form>
     </div>

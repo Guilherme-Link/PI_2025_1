@@ -15,7 +15,8 @@
       </div>
       <div class="right">
         <h1>Cadastro de fornecedor</h1>
-        <form action="" method="POST">
+        <form action="{{ route('fornecedor.store') }}" method="POST">
+          @csrf
           <div>
             <label for="nome">Nome da empresa:</label>
             <input type="text" id="nome" name="nome" required>

@@ -27,9 +27,21 @@ class FornecedorController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $fornec = $request->all();
-        $fornecCreated = Fornecedor::create($fornec);
+    { 
+        $fornecCreated = new Fornecedor();
+        $fornecCreated->nome = $request->nome;
+        $fornecCreated->cnpj = $request->cnpj;
+        $fornecCreated->razao_social = "Teste";
+        $fornecCreated->insc_estadual = "Teste";
+        $fornecCreated->cep = "Teste";
+        $fornecCreated->cidade = "Teste";
+        $fornecCreated->estado = "Teste";
+        $fornecCreated->cidade = "Teste";
+        $fornecCreated->rua = "Teste";
+        $fornecCreated->numero = "Teste";
+        $fornecCreated->bairro = "Teste";
+        $fornecCreated->complemento = "Teste";
+        $fornecCreated->save();
         return redirect()->route('fornecedor.create');
     }
 

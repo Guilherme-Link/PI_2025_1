@@ -1,22 +1,25 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\FornecedorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cadastroProduto', function () {
-    return view('cadastroProduto');
-});
+Route::get('/cadastroProduto', [ProductsController::class, 'create'])->name('product.create');
+Route::post('/adicionarProduto', [ProductsController::class, 'store'])->name('product.store');
 
 Route::get('/cadastroVenda', function () {
     return view('cadastroVenda');
 });
-Route::get('/cadastroFornecedor', function () {
-    return view('cadastroFornecedor');
-});
+
+Route::get('/cadastroFornecedor', [FornecedorController::class, 'create'])->name('fornecedor.create');
+Route::post('/adicionarFornecedor', [FornecedorController::class, 'store'])->name('fornecedor.store');
+
+
 Route::get('/modalTeste', function () {
     return view('modalTeste');
 });

@@ -12,7 +12,8 @@ class FornecedorController extends Controller
      */
     public function index()
     {
-        //
+        $fornec = Fornecedor::all();
+        return view('listaFornecedor', compact('fornec'));
     }
 
     /**
@@ -30,7 +31,7 @@ class FornecedorController extends Controller
     { 
         $fornec = $request->all();
         Fornecedor::create($fornec);
-        return redirect()->route('fornecedor.create');
+        return redirect()->route('fornecedor.index');
     }
 
     /**

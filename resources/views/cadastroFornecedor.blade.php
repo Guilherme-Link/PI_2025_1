@@ -63,14 +63,14 @@
             <label for="complemento">Complemento:</label>
             <input type="text" id="complemento" name="complemento" placeholder="Ex: Sala 123">
           </div>
-          {{-- <div>
+          <div>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Ex: contato@empresa.com" required>
           </div>
           <div>
             <label for="telefone">Telefone:</label>
             <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
-          </div> --}}
+          </div>
           
           <div class="button-container">
             <button type="submit">Cadastrar</button>

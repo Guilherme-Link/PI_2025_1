@@ -12,7 +12,8 @@ class FornecedorController extends Controller
      */
     public function index()
     {
-        //
+        $fornec = Fornecedor::all();
+        return view('listaFornecedor', compact('fornec'));
     }
 
     /**
@@ -28,21 +29,9 @@ class FornecedorController extends Controller
      */
     public function store(Request $request)
     { 
-        $fornecCreated = new Fornecedor();
-        $fornecCreated->nome = $request->nome;
-        $fornecCreated->cnpj = $request->cnpj;
-        $fornecCreated->razao_social = "Teste";
-        $fornecCreated->insc_estadual = "Teste";
-        $fornecCreated->cep = "Teste";
-        $fornecCreated->cidade = "Teste";
-        $fornecCreated->estado = "Teste";
-        $fornecCreated->cidade = "Teste";
-        $fornecCreated->rua = "Teste";
-        $fornecCreated->numero = "Teste";
-        $fornecCreated->bairro = "Teste";
-        $fornecCreated->complemento = "Teste";
-        $fornecCreated->save();
-        return redirect()->route('fornecedor.create');
+        $fornec = $request->all();
+        Fornecedor::create($fornec);
+        return redirect()->route('fornecedor.index');
     }
 
     /**

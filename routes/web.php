@@ -21,10 +21,15 @@ Route::post('/adicionarFornecedor', [FornecedorController::class, 'store'])->nam
 Route::get('/listarFornecedor', [FornecedorController::class, 'index'])->name('fornecedor.index');
 Route::get('/editarFornecedor', [FornecedorController::class, 'edit'])->name('fornecedor.edit');
 
-
 Route::get('/modalTeste', function () {
     return view('modalTeste');
 });
+Route::get('/modalTeste', function () {
+    return view('modalTeste');
+});
+
+
+
 
 
 

@@ -47,7 +47,7 @@ class FornecedorController extends Controller
      */
     public function edit(Fornecedor $fornec)
     {
-        return view('editarFornecedor', $fornec);
+
     }
 
     /**
@@ -55,7 +55,9 @@ class FornecedorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $fornecedor = Fornecedor::findOrFail($id);
+        $fornecedor->update($request->all());
+        return redirect()->route('fornecedor.index');
     }
 
     /**

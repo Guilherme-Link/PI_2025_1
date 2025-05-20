@@ -18,7 +18,7 @@
     </div>
     <div class="right">
       <h1>Cadastro de produto</h1>
-      <form action="" method="POST">
+      <form action="{{ route('product.store') }}" method="POST">
         @csrf
         <div>
           <label for="modelo">Modelo:</label>
@@ -42,7 +42,12 @@
         </div>
         <div>
           <label for="fornecedor">Fornecedor:</label>
-          <input type="text" id="fornecedor" name="fornecedor" placeholder="Ex: Distribuidora XYZ" required>
+          <select id="fornecedor" name="fornecedor_id" required>
+            <option value="">Selecione um fornecedor</option>
+            @foreach($fornecedores as $fornecedor)
+              <option value="{{ $fornecedor->id }}">{{ $fornecedor->nome }}</option>
+            @endforeach
+          </select>
         </div>
         <div>
           <label for="garantia">Garantia:</label>

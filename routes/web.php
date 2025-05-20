@@ -20,10 +20,15 @@ Route::get('/cadastroFornecedor', [FornecedorController::class, 'create'])->name
 Route::post('/adicionarFornecedor', [FornecedorController::class, 'store'])->name('fornecedor.store');
 Route::get('/listarFornecedor', [FornecedorController::class, 'index'])->name('fornecedor.index');
 
-
 Route::get('/modalTeste', function () {
     return view('modalTeste');
 });
+Route::get('/modalTeste', function () {
+    return view('modalTeste');
+});
+
+
+
 
 
 

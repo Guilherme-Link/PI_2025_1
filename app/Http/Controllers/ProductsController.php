@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produto;
+use App\Models\Fornecedor;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -20,7 +21,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('cadastroProduto');
+        $fornecedores = Fornecedor::all();
+        return view('cadastroProduto', compact('fornecedores'));
     }
 
     /**

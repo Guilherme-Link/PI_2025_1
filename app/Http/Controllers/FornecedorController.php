@@ -47,7 +47,8 @@ class FornecedorController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $fornecedor = Fornecedor::findOrFail($id);
+        return view('editarFornecedor', compact('fornecedor'));
     }
 
     /**
@@ -55,7 +56,9 @@ class FornecedorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $fornecedor = Fornecedor::findOrFail($id);
+        $fornecedor->update($request->all());
+        return redirect()->route('fornecedor.index');
     }
 
     /**

@@ -45,9 +45,9 @@ class FornecedorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Fornecedor $fornec)
     {
-        //
+        return view('editarFornecedor', $fornec);
     }
 
     /**

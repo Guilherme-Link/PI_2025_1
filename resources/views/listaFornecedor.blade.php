@@ -24,8 +24,9 @@
             </tr>
           @foreach ($fornec as $fornecedor)
             <tr>
-              <td>{{ $fornecedor->nome }}<td>
-              <td>{{ $fornecedor->cnpj }}<td>
+              <td>{{ $fornecedor->nome }}</td>
+              <td>{{ $fornecedor->cnpj }}</td>
+              <td><a href="{{ route('fornecedor.edit',$fornecedor) }}">Editar</a></td>
             <tr>
           @endforeach
           </table>

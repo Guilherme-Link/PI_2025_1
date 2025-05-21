@@ -47,17 +47,15 @@ class FornecedorController extends Controller
      */
     public function edit(Fornecedor $fornec)
     {
-
+        return view('editarFornecedor', compact('fornec'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Fornecedor $fornec)
     {
-        $fornecedor = Fornecedor::findOrFail($id);
-        $fornecedor->update($request->all());
-        return redirect()->route('fornecedor.index');
+        
     }
 
     /**

@@ -19,7 +19,8 @@ Route::get('/cadastroVenda', function () {
 Route::get('/cadastroFornecedor', [FornecedorController::class, 'create'])->name('fornecedor.create');
 Route::post('/adicionarFornecedor', [FornecedorController::class, 'store'])->name('fornecedor.store');
 Route::get('/listarFornecedor', [FornecedorController::class, 'index'])->name('fornecedor.index');
-Route::get('/editarFornecedor', [FornecedorController::class, 'edit'])->name('fornecedor.edit');
+Route::get('/editarFornecedor/{fornec}', [FornecedorController::class, 'edit'])->name('fornecedor.edit');
+Route::put('/atualizarFornecedor/{fornec}', [FornecedorController::class, 'update'])->name('fornecedor.update');
 
 Route::get('/modalTeste', function () {
     return view('modalTeste');
@@ -27,11 +28,6 @@ Route::get('/modalTeste', function () {
 Route::get('/modalTeste', function () {
     return view('modalTeste');
 });
-
-
-
-
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

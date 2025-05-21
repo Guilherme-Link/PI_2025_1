@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('produto', function (Blueprint $table) {
+        Schema::create('produto', function (Blueprint $table): void {
             $table->id();
+            $table->string('nome');
             $table->foreignIdFor(\App\Models\Fornecedor::class, 'id_fornecedor');
             $table->string('modelo');
             $table->string('marca');
             $table->string('tipo');
             $table->float('preco');
+            $table->integer('quantidade');
             $table->timestamps();
         });
     }

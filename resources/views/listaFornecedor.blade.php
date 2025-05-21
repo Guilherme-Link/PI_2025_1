@@ -12,7 +12,7 @@
     <a href="/" class="back-button">Voltar</a>
 
     <div class="container">
-      <div class="left">
+      <div class="left leftF">
         <img src="{{ asset('imgs/caminhoazinhoAzul.png') }}" alt="caminhao azul">
       </div>
       <div class="right">

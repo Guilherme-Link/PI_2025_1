@@ -9,60 +9,59 @@
     <script src="{{ asset('js/format.js') }}"></script>
   </head>
   <body>
-    <a href="{{ route('fornecedor.index') }}" class="back-button">Voltar</a>
+    <a href="/listarFornecedor" class="back-button">Voltar</a>
 
     <div class="container">
       <div class="left">
         <img src="{{ asset('imgs/caminhoazinhoAzul.png') }}" alt="caminhao azul">
       </div>
       <div class="right">
-        <h1>Editar Fornecedor</h1>
-        <form action="{{ route('fornecedor.update', $fornecedor->id) }}" method="POST">
+        <h1>Editar fornecedor</h1>
+        <form action="{{ route('fornecedor.store') }}" method="POST">
           @csrf
-          @method('PUT')
           <div>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" value="{{ $fornecedor->nome }}" required>
-          </div>
-          <div>
-            <label for="razao_social">Razão Social:</label>
-            <input type="text" id="razao_social" name="razao_social" value="{{ $fornecedor->razao_social }}" required>
+            <label for="nome">Nome da empresa:</label>
+            <input type="text" value="{{ $fornec->nome }}" id="nome" name="nome" placeholder="Ex: Distribuidora XYZ" required>
           </div>
           <div>
             <label for="cnpj">CNPJ:</label>
-            <input type="text" id="cnpj" name="cnpj" value="{{ $fornecedor->cnpj }}" required>
+            <input type="text" value="{{ $fornec->cnpj }}" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" maxlength="18" onkeyup="formatarCNPJ(this)" required>
+          </div>
+          <div>
+            <label for="razao_social">Razão Social:</label>
+            <input type="text" value="{{ $fornec->razao_social }}" id="razao_social" name="razao_social" placeholder="Ex: Distribuidora XYZ Ltda" required>
           </div>
           <div>
             <label for="insc_estadual">Inscrição Estadual:</label>
-            <input type="text" id="insc_estadual" name="insc_estadual" value="{{ $fornecedor->insc_estadual }}">
+            <input type="text" value="{{ $fornec->insc_estadual }}" id="insc_estadual" name="insc_estadual" placeholder="000.000.000" maxlength="12" onkeyup="formatarIE(this)" required>
           </div>
           <div>
             <label for="cep">CEP:</label>
-            <input type="text" id="cep" name="cep" value="{{ $fornecedor->cep }}" required>
+            <input type="text" value="{{ $fornec->cep }}" id="cep" name="cep" placeholder="00000-000" maxlength="9" onkeyup="formatarCEP(this)" required>
           </div>
           <div>
             <label for="estado">Estado:</label>
-            <input type="text" id="estado" name="estado" value="{{ $fornecedor->estado }}" required>
+            <input type="text" value="{{ $fornec->estado }}" id="estado" name="estado" placeholder="Ex: SP" required>
           </div>
           <div>
             <label for="cidade">Cidade:</label>
-            <input type="text" id="cidade" name="cidade" value="{{ $fornecedor->cidade }}" required>
+            <input type="text" value="{{ $fornec->cidade }}" id="cidade" name="cidade" placeholder="Ex: São Paulo" required>
           </div>
           <div>
             <label for="rua">Rua:</label>
-            <input type="text" id="rua" name="rua" value="{{ $fornecedor->rua }}" required>
+            <input type="text" value="{{ $fornec->rua }}" id="rua" name="rua" placeholder="Ex: Avenida Paulista" required>
           </div>
           <div>
             <label for="numero">Número:</label>
-            <input type="text" id="numero" name="numero" value="{{ $fornecedor->numero }}" required>
+            <input type="text" value="{{ $fornec->numero }}" id="numero" name="numero" placeholder="Ex: 1000" required>
           </div>
           <div>
             <label for="bairro">Bairro:</label>
-            <input type="text" id="bairro" name="bairro" value="{{ $fornecedor->bairro }}" required>
+            <input type="text" value="{{ $fornec->bairro }}" id="bairro" name="bairro" placeholder="Ex: Bela Vista" required>
           </div>
           <div>
             <label for="complemento">Complemento:</label>
-            <input type="text" id="complemento" name="complemento" value="{{ $fornecedor->complemento }}">
+            <input type="text" value="{{ $fornec->complemento }}" id="complemento" name="complemento" placeholder="Ex: Sala 123">
           </div>
           <div>
             <label for="email">Email:</label>
@@ -74,7 +73,7 @@
           </div>
           
           <div class="button-container">
-            <button type="submit">Atualizar Fornecedor</button>
+            <button type="submit">Cadastrar</button>
           </div>
         </form>
       </div>

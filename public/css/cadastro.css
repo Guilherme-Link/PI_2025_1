@@ -25,10 +25,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 100vh; */
 }
 
-.leftP{
+.leftP, .leftF{
   height: 100vh;
 }
 

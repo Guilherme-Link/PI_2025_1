@@ -1,10 +1,32 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\FornecedorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/cadastroProduto', [ProductsController::class, 'create'])->name('product.create');
+Route::post('/adicionarProduto', [ProductsController::class, 'store'])->name('product.store');
+
+Route::get('/cadastroVenda', function () {
+    return view('cadastroVenda');
+});
+
+Route::get('/cadastroFornecedor', [FornecedorController::class, 'create'])->name('fornecedor.create');
+Route::post('/adicionarFornecedor', [FornecedorController::class, 'store'])->name('fornecedor.store');
+Route::get('/listarFornecedor', [FornecedorController::class, 'index'])->name('fornecedor.index');
+Route::get('/editarFornecedor/{fornec}', [FornecedorController::class, 'edit'])->name('fornecedor.edit');
+Route::put('/atualizarFornecedor/{fornec}', [FornecedorController::class, 'update'])->name('fornecedor.update');
+
+Route::get('/modalTeste', function () {
+    return view('modalTeste');
+});
+Route::get('/modalTeste', function () {
+    return view('modalTeste');
 });
 
 Route::get('/dashboard', function () {

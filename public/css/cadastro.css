@@ -11,7 +11,6 @@
 body {
   font-family: Poppins, sans-serif;
   display: flex;
-  height: 100vh;
   color: #fff;
 }
 
@@ -28,6 +27,12 @@ body {
   justify-content: center;
 }
 
+.leftP, .leftF{
+  height: 100vh;
+}
+
+
+
 .left img {
   width: 60%;
 }
@@ -40,7 +45,7 @@ body {
 
 h1 {
   font-size: 2.2rem;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-weight: bold;
   text-align: center;
   text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -58,7 +63,7 @@ label {
   font-weight: 600;
 }
 
-input {
+input, select {
   width: 100%;
   padding: 10px;
   border: none;
@@ -66,6 +71,10 @@ input {
   background-color: #e6e6e6;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   
+}
+
+select{
+  color: rgba(0, 0, 0, 0.495);
 }
 
 input:focus{
@@ -80,7 +89,8 @@ input:focus{
 .button-container {
   grid-column: span 2;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 button {

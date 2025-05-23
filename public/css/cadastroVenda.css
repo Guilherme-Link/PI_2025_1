@@ -1,9 +1,13 @@
+body{
+  height: 100vh;
+}
+
 .formulario {
     flex: 1;
     color: #fff;
     padding: 40px;
     position: relative;
-  }
+  } 
   
   .linha {
     display: flex;
@@ -29,6 +33,7 @@
     background-color: #ddd;
     box-shadow: 2px 2px 4px #333;
     font-family: Poppins, sans-serif;
+    flex: 1;
   }
   
   .cartao {

@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('numero');
             $table->string('bairro');
             $table->string('complemento');
+            $table->string('email');
+            $table->string('telefone');
             $table->timestamps();
         });
     }
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fornecedors');
+        Schema::dropIfExists('fornecedor');
     }
 };

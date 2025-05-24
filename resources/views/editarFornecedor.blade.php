@@ -17,7 +17,7 @@
       </div>
       <div class="right">
         <h1>Editar fornecedor</h1>
-        <form action="{{ route('fornecedor.store') }}" method="POST">
+        <form action="{{ route('fornecedor.update', $fornec) }}" method="POST">
           @csrf
           <div>
             <label for="nome">Nome da empresa:</label>
@@ -65,15 +65,14 @@
           </div>
           <div>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Ex: contato@empresa.com" required>
+            <input type="email" value="{{ $fornec->email }}" id="email" name="email" placeholder="Ex: contato@empresa.com" required>
           </div>
           <div>
             <label for="telefone">Telefone:</label>
-            <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+            <input type="text" value="{{ $fornec->telefone }}" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
           </div>
-          
           <div class="button-container">
-            <button type="submit">Cadastrar</button>
+            <button type="submit">Atualizar</button>
           </div>
         </form>
       </div>

@@ -55,14 +55,31 @@ class FornecedorController extends Controller
      */
     public function update(Request $request, Fornecedor $fornec)
     {
-        
+        $newfornec = $request->all();
+
+        $fornec->nome = $newfornec['nome'];
+        $fornec->cnpj = $newfornec['cnpj'];
+        $fornec->razao_social = $newfornec['razao_social'];
+        $fornec->insc_estadual = $newfornec['insc_estadual'];
+        $fornec->cep = $newfornec['cep'];
+        $fornec->estado = $newfornec['estado'];
+        $fornec->cidade = $newfornec['cidade'];
+        $fornec->numero = $newfornec['numero'];
+        $fornec->bairro = $newfornec['bairro'];
+        $fornec->complemento = $newfornec['complemento'];
+        $fornec->email = $newfornec['email'];
+        $fornec->telefone = $newfornec['telefone'];
+
+        $fornec->save();
+        return redirect()->route('fornecedor.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Fornecedor $fornec)
     {
-        //
+        $fornec->delete();
+        return redirect()->route('fornecedor.index');
     }
 }

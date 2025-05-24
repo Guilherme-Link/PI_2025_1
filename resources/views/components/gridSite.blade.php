@@ -19,13 +19,6 @@
     <div class="grafico">
       <x-graph></x-graph>
     </div>
-
-
-    <div class="tabela">
-      <x-table></x-table>
-    </div>
-    
-   
     
 
   </article>

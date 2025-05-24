@@ -31,6 +31,8 @@
     width: 80vw;
     padding: 10px;
   }
+
+  
   
 }
 
@@ -54,7 +56,6 @@
 .tableWrapper {
   background-color: white;
   padding: 0;
-  border: 1px solid #999;
   overflow-y: scroll;
   max-height: 500px;
 }
@@ -79,12 +80,11 @@
   border-bottom: 1px solid #ccc;
   color: white;
   font-size: 0.95rem;
-  /* background-color: #1e1e1e; */
   
 }
 
 .styledTable tbody tr:hover {
-  background-color: #5D67EE;
+  background-color: #555558;
   color: white;
   cursor: pointer;
   transition: background-color 0.5s ease;
@@ -102,3 +102,20 @@
 .styledTable td {
   border: none;
 }
+
+td a{
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+td a svg:hover{
+  color: #4867ff;
+  transition: color 0.5s ease;
+}
+

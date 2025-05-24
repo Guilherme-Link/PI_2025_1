@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('movimentacoes', function (Blueprint $table): void {
+        Schema::create('transacoes', function (Blueprint $table): void {
             $table->id();
             $table->integer('tipo');//0 - Entrada | 1 - Saída
-            $table->foreignIdFor(\App\Models\Produto::class, 'id_produto');
-            $table->integer('quantidade'); //Input pelo usuário na entrada de compras ou pedido de vendas
             $table->timestamps();
-            $table->increment('id_pedido')->nullable(); //ID do pedido de venda ou compra
-
+            $table->decimal('valor_total', total: 8, places: 2);
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('movimentacoes');
+        Schema::dropIfExists('transacoes');
     }
 };

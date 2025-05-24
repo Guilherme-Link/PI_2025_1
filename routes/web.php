@@ -21,7 +21,7 @@ Route::post('/adicionarFornecedor', [FornecedorController::class, 'store'])->nam
 Route::get('/listarFornecedor', [FornecedorController::class, 'index'])->name('fornecedor.index');
 Route::get('/editarFornecedor/{fornec}', [FornecedorController::class, 'edit'])->name('fornecedor.edit');
 Route::post('/atualizarFornecedor/{fornec}', [FornecedorController::class, 'update'])->name('fornecedor.update');
-Route::put('/deletarFornecedor/{fornec}', [FornecedorController::class, 'destroy'])->name('fornecedor.delete');
+Route::delete('/deletarFornecedor/{fornec}', [FornecedorController::class, 'destroy'])->name('fornecedor.destroy');
 
 Route::get('/modalTeste', function () {
     return view('modalTeste');

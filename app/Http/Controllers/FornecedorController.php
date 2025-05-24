@@ -77,8 +77,9 @@ class FornecedorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Fornecedor $fornec)
     {
-        //
+        $fornec->delete();
+        return redirect()->route('fornecedor.index');
     }
 }

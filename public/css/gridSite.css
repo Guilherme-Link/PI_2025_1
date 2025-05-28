@@ -20,13 +20,14 @@ body {
   #mainArticle { 
     grid-area: article;   
     padding: 1.2em;
+    margin: 0 auto;
     }
 
 
   .grafico{
     display: flex;
     justify-content: center;
-    margin-left: 1vw;
+    margin-left: 1vw;  
   }
 
 

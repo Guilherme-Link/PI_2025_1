@@ -21,6 +21,10 @@
       <form action="{{ route('product.store') }}" method="POST">
         @csrf
         <div>
+          <label for="modelo">Nome:</label>
+          <input type="text" id="nome" name="nome" placeholder="Nome do produto" required>
+        </div>
+        <div>
           <label for="modelo">Modelo:</label>
           <input type="text" id="modelo" name="modelo" placeholder="Ex: iPhone 13" required>
         </div>
@@ -29,29 +33,27 @@
           <input type="text" id="marca" name="marca" placeholder="Ex: Apple" required>
         </div>
         <div>
+          <label for="custo">Custo:</label>
+          <input type="number" id="custo" name="custo" placeholder="Ex: R$ 199.99" step="0.01" min="0">
+        </div>
+        <div>
           <label for="preco">Preço:</label>
           <input type="number" id="preco" name="preco" placeholder="Ex: 4999.90" step="0.01" min="0">
         </div>
         <div>
-          <label for="quantidade">Quantidade:</label>
-          <input type="number" id="quantidade" name="quantidade" placeholder="Ex: 10" min="0">
+          <label for="tipo">Tipo:</label>
+          <input type="text" id="tipo" name="tipo" placeholder="Ex: Celular" step="0.01" min="0">
         </div>
+        
+
         <div>
-          <label for="codigo">Código do produto:</label>
-          <input type="text" id="codigo" name="codigo" placeholder="Ex: PRD-2024-001" required>
-        </div>
-        <div>
-          <label for="fornecedor">Fornecedor:</label>
-          <select id="fornecedor" name="fornecedor_id" required>
+          <label for="id_fornecedor">Fornecedor:</label>
+          <select id="id_fornecedor" name="id_fornecedor" required>
             <option value="">Selecione um fornecedor</option>
             @foreach($fornecedores as $fornecedor)
               <option value="{{ $fornecedor->id }}">{{ $fornecedor->nome }}</option>
             @endforeach
           </select>
-        </div>
-        <div>
-          <label for="garantia">Garantia:</label>
-          <input type="text" id="garantia" name="garantia" placeholder="Ex: 12 meses" required>
         </div>
         <div class="button-container">
           <button type="submit">Cadastrar Produto</button>

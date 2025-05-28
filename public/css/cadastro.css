@@ -22,11 +22,11 @@ body {
 }
 
 .left {
-  flex: 1;
   background-color: #2e2e2e;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40%;
 }
 
 .leftP, .leftF{
@@ -36,7 +36,7 @@ body {
 }
 
 .left img {
-  width: 60%;
+  width: 70%;
   max-width: 100%;
   height: auto;
 }
@@ -148,7 +148,7 @@ button:hover {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .container {
     flex-direction: column;
   }
@@ -161,6 +161,7 @@ button:hover {
   .leftP, .leftF {
     min-height: auto;
     padding: 40px 20px;
+    height: 40%;
   }
 
   h1 {

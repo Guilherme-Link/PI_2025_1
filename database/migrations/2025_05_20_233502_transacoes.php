@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('transacoes', function (Blueprint $table): void {
             $table->id();
             $table->integer('tipo');//0 - Entrada | 1 - Saída
-            $table->timestamps();
             $table->decimal('valor_total', total: 8, places: 2);
+            $table->timestamps();
         });
     }
 

@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('item_transacao', function (Blueprint $table): void {
+            $table->id();
             $table->foreignIdFor(App\Models\Produto::class)->constrained();
             $table->foreignIdFor(App\Models\Transacoes::class)->constrained();
             $table->integer('quantidade');

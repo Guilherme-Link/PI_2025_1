@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('produto', function (Blueprint $table): void {
             $table->id();
             $table->string('nome');
-            $table->foreignIdFor(\App\Models\Fornecedor::class, 'id_fornecedor');
+            $table->foreignIdFor(\App\Models\Fornecedor::class, 'id_fornecedor')->constrained();
             $table->string('modelo');
             $table->string('marca');
             $table->string('tipo');
-            $table->float('preco');
+            $table->decimal('custo', total: 8, places: 2);
+            $table->decimal('preco', total: 8, places: 2);
             $table->integer('quantidade');
+            $table->string('observacao');
             $table->timestamps();
         });
     }

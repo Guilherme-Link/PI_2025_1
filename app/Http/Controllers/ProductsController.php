@@ -11,9 +11,10 @@ class ProductsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Produto $produto)
     {
-        //
+        $produto = Produto::all();
+        return view('listaProduto', compact('produto'));
     }
 
     /**
@@ -21,8 +22,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $fornecedores = Fornecedor::all();
-        return view('cadastroProduto', compact('fornecedores'));
+      return view('cadastroProduto');
     }
 
     /**
@@ -46,24 +46,37 @@ class ProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Produto $produto)
     {
-        //
+        return view('editarProduto', compact('produto'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Produto $produto)
     {
-        //
+        $newProduto = $request->all();
+
+        $produto->nome = $newProduto['nome'];
+        $produto->id_fornecedor = $newProduto['id_fornecedor'];
+        $produto->modelo = $newProduto['modelo'];
+        $produto->marca = $newProduto['marca'];
+        $produto->tipo = $newProduto['tipo'];
+        $produto->custo = $newProduto['custo'];
+        $produto->preco = $newProduto['preco'];
+        $produto->observaca = $newProduto['observacao'];
+
+        $produto->save();
+        return redirect()->route('product.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Produto $produto)
     {
-        //
+        $produto->delete();
+        return redirect()->route('product.index');
     }
 }

@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/listarProduto', [ProductsController::class, 'index'])->name('product.index');
 Route::get('/cadastroProduto', [ProductsController::class, 'create'])->name('product.create');
 Route::post('/adicionarProduto', [ProductsController::class, 'store'])->name('product.store');
+Route::get('/editarProduto/{produto}', [ProductsController::class, 'edit'])->name('product.edit');
+Route::post('/atualizarProduto/{produto}', [ProductsController::class, 'update'])->name('product.update');
 
 Route::get('/cadastroVenda', function () {
     return view('cadastroVenda');

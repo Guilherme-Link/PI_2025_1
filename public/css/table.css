@@ -14,59 +14,28 @@
 
 }
 
-.checkboxContainer {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 10px;
-}
-
-@media screen and (max-width: 768px) {
-  .checkboxContainer {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .mainWrapper {
-    width: 80vw;
-    padding: 10px;
-  }
-
-  
-  
-}
-
-.checkboxItem {
-  background-color: #3e3e3e;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 4px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.checkboxItem input[type="checkbox"] {
-  accent-color: white;
-  width: 16px;
-  height: 16px;
-}
-
+/* Container principal da tabela */
 .tableWrapper {
-  background-color: white;
   padding: 0;
-  overflow-y: scroll;
-  max-height: 500px;
+  overflow-x: auto;
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  background-color: #1e1e1e;
+  border-radius: 8px;
 }
 
+/* Estilo base da tabela */
 .styledTable {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
+  min-width: 600px;
   table-layout: fixed;
 }
 
+/* Cabeçalho da tabela */
 .styledTable thead {
   background-color: #e0e0e0;
   color: #333;
@@ -75,54 +44,114 @@
   z-index: 1;
 }
 
+/* Células da tabela */
 .styledTable th,
 .styledTable td {
-  padding: 12px;
+  padding: 12px 15px;
   border-bottom: 1px solid #ccc;
   color: white;
   font-size: 0.95rem;
-  width: 100%;
-  word-wrap: break-word;
-  text-align: center;
-  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.styledTable tbody tr:hover {
-  background-color: #555558;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.5s ease;
-  
+/* Estilo específico para cabeçalhos */
+.styledTable th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
 }
 
+/* Cores alternadas das linhas */
 .styledTable tr:nth-child(even) {
   background-color: #2c3034;
 }
 
 .styledTable tr:nth-child(odd) {
-  background-color: #1e1e1e;  
+  background-color: #1e1e1e;
+}
+
+/* Efeito hover em todas as linhas exceto a primeira */
+.styledTable tr:not(:first-child):hover {
+  background-color: #555558;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
 }
 
 .styledTable td {
   border: none;
 }
 
-td a{
+/* Estilo dos links de ação */
+td a {
   text-decoration: none;
   color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin: 10px;
-  display: inline-block;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 4px;
 }
 
+/* Ícones dos links */
+td a svg {
+  width: 18px;
+  height: 18px;
+  transition: all 0.3s ease;
+}
 
-td a svg:hover{
+td a svg:hover {
   color: #4867ff;
-  transition: color 0.5s ease;
 }
 
-.excluir-button{
-  margin-left: 1vw;
+/* Botão de excluir */
+td form button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .tableWrapper {
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+
+  .styledTable {
+    min-width: 100%;
+  }
+
+  .styledTable th,
+  .styledTable td {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  td a svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media screen and (max-width: 480px) {
+  .styledTable th,
+  .styledTable td {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  td a svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+

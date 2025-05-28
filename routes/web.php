@@ -12,7 +12,8 @@ Route::get('/listarProduto', [ProductsController::class, 'index'])->name('produc
 Route::get('/cadastroProduto', [ProductsController::class, 'create'])->name('product.create');
 Route::post('/adicionarProduto', [ProductsController::class, 'store'])->name('product.store');
 Route::get('/editarProduto/{produto}', [ProductsController::class, 'edit'])->name('product.edit');
-Route::post('/atualizarProduto/{produto}', [ProductsController::class, 'update'])->name('product.update');
+Route::put('/atualizarProduto/{produto}', [ProductsController::class, 'update'])->name('product.update');
+Route::delete('/deletarProduto/{produto}', [ProductsController::class, 'destroy'])->name('product.destroy');
 
 Route::get('/cadastroVenda', function () {
     return view('cadastroVenda');

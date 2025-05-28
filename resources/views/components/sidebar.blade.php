@@ -35,7 +35,7 @@
         </button>
         <ul class="sub-menu">
           <div>
-            <li><a href="#">Produtos</a></li>
+            <li><a href="/listarProduto">Produtos</a></li>
             <li><a href="/listarFornecedor">Fornecedores</a></li>
             <li><a href="#">Vendas</a></li>
           </div>

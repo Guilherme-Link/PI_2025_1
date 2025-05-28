@@ -22,7 +22,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-      return view('cadastroProduto');
+      $fornecedores = Fornecedor::all();  
+      return view('cadastroProduto', compact('fornecedores'));
     }
 
     /**
@@ -32,7 +33,9 @@ class ProductsController extends Controller
     {
         $product = $request->all();
         $productCreated = Produto::create($product);
-        return redirect()->route('product.create');
+        $productCreated->quantidade = 0;
+        $productCreated->save();
+        return redirect('/listarProduto');
     }
 
     /**
@@ -48,7 +51,8 @@ class ProductsController extends Controller
      */
     public function edit(Produto $produto)
     {
-        return view('editarProduto', compact('produto'));
+        $fornecedores = Fornecedor::all();
+        return view('editarProduto', compact('produto', 'fornecedores'));
     }
 
     /**
@@ -65,7 +69,7 @@ class ProductsController extends Controller
         $produto->tipo = $newProduto['tipo'];
         $produto->custo = $newProduto['custo'];
         $produto->preco = $newProduto['preco'];
-        $produto->observaca = $newProduto['observacao'];
+        $produto->observacao = $newProduto['observacao'];
 
         $produto->save();
         return redirect()->route('product.index');

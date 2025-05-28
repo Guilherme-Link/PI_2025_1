@@ -17,7 +17,7 @@
       </div>
       <div class="right">
         <h1>Editar fornecedor</h1>
-        <form action="{{ route('fornecedor.update', $fornec) }}" method="POST">
+        <form action="{{ route('fornecedor.update', $fornec) }}" method="POST" class="formulario">
           @csrf
           <div>
             <label for="nome">Nome da empresa:</label>

@@ -44,10 +44,6 @@
           <label for="tipo">Tipo:</label>
           <input type="text" id="tipo" name="tipo" placeholder="Ex: Celular" step="0.01" min="0">
         </div>
-        <div>
-          <label for="quanridade">Quantidade:</label>
-          <input type="number" id="quantidade" name="quantidade" placeholder="Ex: Celular" step="0.01" min="0" value="0">
-        </div>
 
         <div>
           <label for="id_fornecedor">Fornecedor:</label>

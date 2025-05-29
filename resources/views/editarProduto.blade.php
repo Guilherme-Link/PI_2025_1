@@ -50,7 +50,7 @@
         <div>
           <label for="id_fornecedor">Fornecedor:</label>
           <select id="id_fornecedor" name="id_fornecedor" required>
-            <option value="">Selecione um fornecedor</option>
+            <option value="{{ $produto->id_fornecedor }}">Selecione um fornecedor</option>
             @foreach($fornecedores as $fornecedor)
               <option value="{{ $fornecedor->id }}">{{ $fornecedor->nome }}</option>
             @endforeach

@@ -32,9 +32,8 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $product = $request->all();
+        $product['quantidade'] = 0;
         $productCreated = Produto::create($product);
-        $productCreated->quantidade = 0;
-        $productCreated->save();
         return redirect('/listarProduto');
     }
 

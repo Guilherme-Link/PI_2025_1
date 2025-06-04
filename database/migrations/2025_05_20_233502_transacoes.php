@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('tipo');//0 - Entrada | 1 - Saída
             $table->decimal('valor_total', total: 8, places: 2);
+            $table->text('forma_pagamento');
             $table->timestamps();
         });
     }

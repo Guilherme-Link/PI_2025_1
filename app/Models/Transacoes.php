@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transacoes extends Model
 {
-   protected $fillable = ['tipo','valor_total'];
+   protected $fillable = ['tipo','valor_total', 'forma_pagamento'];
+
+   public function items_transacao()
+    {
+        return $this->hasMany(Item_transacao::class);
+    }
 }

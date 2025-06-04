@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Item_transacao extends Model
 {
 
-protected $fillable = ['quantidade','valor_unitario'];
+protected $fillable = ['id_produto', 'id_transacao', 'quantidade', 'desconto', 'valor_unitario'];
+
+    public function transacao()
+    {
+        return $this->belongsTo(Transacoes::class);
+    }
 
 }

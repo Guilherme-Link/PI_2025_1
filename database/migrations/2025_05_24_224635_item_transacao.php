@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('quantidade');
             $table->decimal('desconto', total: 8, places: 2)->nullable();
             $table->decimal('valor_unitario', total: 8, places: 2);
-            
+            $table->timestamps();
         });
     }
 

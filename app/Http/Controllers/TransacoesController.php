@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Item_transacao;
+use App\Models\Transacoes;
 use Illuminate\Http\Request;
 
 class TransacoesController extends Controller
@@ -28,7 +30,27 @@ class TransacoesController extends Controller
     public function store(Request $request)
     {
         $mov = $request->all();
-        dd($mov);
+
+        //Criando a nova transação
+        $MovCreated = new Transacoes();
+        $MovCreated->tipo = 0;
+        $MovCreated->valor_total = $mov['preco_total'];
+        $MovCreated->forma_pagamento = $mov['pagamento'];
+        $MovCreated->save();
+
+        //Criando os itens contidos na transação
+        foreach($mov['items'] as $item){
+            $ItCreated = new Item_transacao();
+            $ItCreated->id_produto = $item['id'];
+            $ItCreated->id_transacao = $MovCreated->id;
+            $ItCreated->quantidade = $item['quantidade'];
+            $ItCreated->desconto = $item['desconto'];
+            $ItCreated->valor_unitario = 00;
+            $ItCreated->save();
+        }
+
+        return view('cadastroVenda');
+        //dd($mov);
     }
 
     /**

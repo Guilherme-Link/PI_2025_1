@@ -18,7 +18,8 @@
     <div class="right">
         <h1>Cadastro de Venda</h1>
         <div class="linha">
-        <form  action="" method="POST" class="formulario">
+        <form  action="{{ route('transacao.store') }}" method="POST" class="formulario">
+          @csrf
           <div class="campo">
             <label for="produto">Produto:</label>
             <select id="produto" name="produto">
@@ -35,7 +36,7 @@
           </div>
           <div class="campo">
             <label for="desconto">Desconto:</label>
-            <input type="number" id="desconto" name="desconto" placeholder="%">
+            <input type="number" id="desconto" placeholder="R$">
           </div>
         </div>
         <div class="under-container">
@@ -43,7 +44,7 @@
             <div class="coluna-esquerda">
               <div class="cartao pagamento">
                 <p><strong>Pagamento</strong></p>
-                <select id="pagamento">
+                <select id="pagamento" name="pagamento">
                   <option value="pix">Pix</option>
                   <option value="boleto">Boleto</option>
                   <option value="cartao">Cartão</option>
@@ -54,6 +55,7 @@
                 <p><strong>Preço do produto</strong></p>
                 <span>R$00,00</span>
                 {{-- Preço dinamico do produto selecionado --}}
+                {{-- <input type="hidden" name="preco_total" value="500.50" readonly></input> --}}
               </div>
             </div>
 
@@ -63,11 +65,26 @@
                 <span>Carrinho de compras</span>
               </div>
               <div class="carrinho-itens">
+
                 {{-- Aqui são inseridos os itens do carrinho --}}
               </div>
               <div class="carrinho-total">
                 <strong>Total: </strong>
                 <span id="total-carrinho">R$ 0,00</span>
+                <div class="item">3x Produto1</div>
+                <input type="hidden" name="items[0][id]" value="1" readonly></input>
+                <input type="hidden" name="items[0][quantidade]" value="3" readonly></input>
+                <input type="hidden" name="items[0][desconto]" value="0" readonly></input>
+
+                <div class="item">1x Produto2</div>
+                <input type="hidden" name="items[1][id]" value="2" readonly></input>
+                <input type="hidden" name="items[1][quantidade]" value="2" readonly></input>
+                <input type="hidden" name="items[1][desconto]" value="5" readonly></input>
+
+                <div class="item">1x Produto4</div>
+                <input type="hidden" name="items[2][id]" value="3" readonly></input>
+                <input type="hidden" name="items[2][quantidade]" value="1" readonly></input>
+                <input type="hidden" name="items[2][desconto]" value="0" readonly></input>
               </div>
             </div>
           </div>
@@ -82,7 +99,4 @@
     </div>
   </div>
 </body>
-<script>
-  
-</script>
 </html>

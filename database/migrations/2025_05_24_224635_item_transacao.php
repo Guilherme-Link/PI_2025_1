@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('item_transacao', function (Blueprint $table): void {
             $table->id();
-            $table->foreignIdFor(App\Models\Produto::class)->constrained();
-            $table->foreignIdFor(App\Models\Transacoes::class)->constrained();
+            $table->foreignIdFor(App\Models\Produto::class, 'id_produto')->constrained();
+            $table->foreignIdFor(App\Models\Transacoes::class, 'id_transacao')->constrained();
             $table->integer('quantidade');
             $table->decimal('desconto', total: 8, places: 2)->nullable();
             $table->decimal('valor_unitario', total: 8, places: 2);
-            
+            $table->timestamps();
         });
     }
 

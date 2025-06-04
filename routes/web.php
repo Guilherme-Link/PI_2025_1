@@ -3,7 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\FornecedorController;
-use App\Http\Controllers\VendaController;
+
+use App\Http\Controllers\TransacoesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,13 +18,16 @@ Route::put('/atualizarProduto/{produto}', [ProductsController::class, 'update'])
 Route::delete('/deletarProduto/{produto}', [ProductsController::class, 'destroy'])->name('product.destroy');
 
 Route::get('/cadastroVenda', [VendaController::class, 'create'])->name('venda.create');
-
 Route::get('/cadastroFornecedor', [FornecedorController::class, 'create'])->name('fornecedor.create');
 Route::post('/adicionarFornecedor', [FornecedorController::class, 'store'])->name('fornecedor.store');
 Route::get('/listarFornecedor', [FornecedorController::class, 'index'])->name('fornecedor.index');
 Route::get('/editarFornecedor/{fornec}', [FornecedorController::class, 'edit'])->name('fornecedor.edit');
 Route::post('/atualizarFornecedor/{fornec}', [FornecedorController::class, 'update'])->name('fornecedor.update');
 Route::delete('/deletarFornecedor/{fornec}', [FornecedorController::class, 'destroy'])->name('fornecedor.destroy');
+
+Route::get('/cadastroVenda', [TransacoesController::class, 'create'])->name('transacao.create');
+Route::post('/adicionarVenda', [TransacoesController::class, 'store'])->name('transacao.store');
+
 
 Route::get('/modalTeste', function () {
     return view('modalTeste');

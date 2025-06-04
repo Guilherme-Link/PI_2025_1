@@ -11,32 +11,40 @@
 Abra um terminal (ou git bash, no windows) na pasta raiz do projeto, e execute o comando abaixo:  
 
 	composer install
-	
-### 3. Crie o arquivo `.env`
+
+
+### 3. Instale e faça build as dependências do npm.  
+
+Abra um terminal (ou git bash, no windows) na pasta raiz do projeto, e execute os comandos abaixo:  
+
+	npm install
+	npm run build
+
+### 4. Crie o arquivo `.env`
 
 Duplique o arquivo `.env.example` na pasta raiz, e renomeie o novo arquivo para `.env` ou, com o terminal aberto na pasta raiz digite o comando abaixo:
 
 	cp .env.example .env  
 	
-### 4. Gere uma chave para a aplicação
+### 5. Gere uma chave para a aplicação
 
 Execute o comando abaixo:
 	
 	php artisan key:generate
 	
-### 5. Faça a migração do banco de dados
+### 6. Faça a migração do banco de dados
 
 Execute o comando abaixo e aceite a criação do novo database:
 
 	php artisan migrate
 	
-### 6. Sirva a aplicação
+### 7. Sirva a aplicação
 
 Execute o comando abaixo:
 
 	php artisan serve
 	
-### 7. Acesse a aplicação
+### 8. Acesse a aplicação
 
 O sistema já está rodando. Para acessar a interface, digite o URL abaixo no seu navegador web de preferência:
 

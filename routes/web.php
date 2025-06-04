@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\FornecedorController;
-use App\Http\Controllers\MovimentacoesController;
+use App\Http\Controllers\TransacoesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,8 +23,8 @@ Route::get('/editarFornecedor/{fornec}', [FornecedorController::class, 'edit'])-
 Route::post('/atualizarFornecedor/{fornec}', [FornecedorController::class, 'update'])->name('fornecedor.update');
 Route::delete('/deletarFornecedor/{fornec}', [FornecedorController::class, 'destroy'])->name('fornecedor.destroy');
 
-Route::get('/cadastroVenda', [MovimentacoesController::class, 'create'])->name('movimentacao.create');
-Route::post('/adicionarVenda', [MovimentacoesController::class, 'store'])->name('movimentacao.store');
+Route::get('/cadastroVenda', [TransacoesController::class, 'create'])->name('transacao.create');
+Route::post('/adicionarVenda', [TransacoesController::class, 'store'])->name('transacao.store');
 
 
 Route::get('/modalTeste', function () {

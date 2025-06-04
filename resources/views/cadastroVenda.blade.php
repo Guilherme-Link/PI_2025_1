@@ -17,7 +17,7 @@
     <div class="right">
         <h1>Cadastro de Venda</h1>
         <div class="linha">
-        <form  action="{{ route('movimentacao.store') }}" method="POST" class="formulario">
+        <form  action="{{ route('transacao.store') }}" method="POST" class="formulario">
           @csrf
           <div class="campo">
             <label for="produto">Produto:</label>

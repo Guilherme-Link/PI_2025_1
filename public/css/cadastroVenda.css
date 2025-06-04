@@ -150,8 +150,8 @@ select {
 }
 
 .item {
-  background-color: #d9d9d9;
-  color: #fff;
+  background-color: #c4c4c4;
+  color: #ffffff;
   font-weight: 500;
   font-size: 1.2em;
   padding: 15px;
@@ -162,7 +162,7 @@ select {
 }
 
 .item:hover {
-  background-color: #c4c4c4;
+  background-color: #8f8f8f;
   cursor: pointer;
 }
 
@@ -209,4 +209,43 @@ select {
 
 h1 {
   font-weight: 600;
+}
+
+
+.carrinho-total {
+  margin-top: 15px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  text-align: right;
+  font-size: 1.1em;
+}
+
+.carrinho-total strong {
+  margin-right: 5px;
+}
+
+#total-carrinho {
+  color: #3CC79A;
+  font-weight: bold;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.btn-remover {
+  background: none;
+  border: none;
+  color: #ff4444;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 0 5px;
+  transition: transform 0.5s ease;
+}
+
+.btn-remover:hover {
+  transform: scale(1.3);
 }

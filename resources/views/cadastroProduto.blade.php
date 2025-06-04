@@ -61,7 +61,7 @@
         </div>
 
         <div class="button-container">
-          <button type="submit">Cadastrar Produto</button>
+          <button type="submit" class="button-estilo">Cadastrar Produto</button>
         </div>
       </form>
     </div>

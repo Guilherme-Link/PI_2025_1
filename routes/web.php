@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\FornecedorController;
+
 use App\Http\Controllers\TransacoesController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ Route::get('/editarProduto/{produto}', [ProductsController::class, 'edit'])->nam
 Route::put('/atualizarProduto/{produto}', [ProductsController::class, 'update'])->name('product.update');
 Route::delete('/deletarProduto/{produto}', [ProductsController::class, 'destroy'])->name('product.destroy');
 
+Route::get('/cadastroVenda', [VendaController::class, 'create'])->name('venda.create');
 Route::get('/cadastroFornecedor', [FornecedorController::class, 'create'])->name('fornecedor.create');
 Route::post('/adicionarFornecedor', [FornecedorController::class, 'store'])->name('fornecedor.store');
 Route::get('/listarFornecedor', [FornecedorController::class, 'index'])->name('fornecedor.index');

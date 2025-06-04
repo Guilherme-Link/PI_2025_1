@@ -6,6 +6,7 @@
   <title>Cadastro de Venda</title>
   <link rel="stylesheet" href="{{ asset('css/cadastro.css') }}">
   <link rel="stylesheet" href="{{ asset('css/cadastroVenda.css') }}">
+  <script src="{{ asset('js/cadastroDeVendas.js') }}"></script>
 </head>
 <body>
   <a href="/" class="back-button">Voltar</a>
@@ -21,18 +22,16 @@
           @csrf
           <div class="campo">
             <label for="produto">Produto:</label>
-            <select id="produto">
+            <select id="produto" name="produto">
               <option value="" disabled selected>Selecione</option>
-              <option value="produto1">Produto 1</option>
-              <option value="produto2">Produto 2</option>
+              @foreach($produtos as $produto)
+                <option value="{{ $produto->id }}">{{ $produto->nome }} - R$ {{ number_format($produto->preco, 2, ',', '.') }}</option>
+              @endforeach
             </select>
           </div>
           <div class="campo">
             <label for="quantidade">Quantidade:</label>
-            <select id="quantidade" nome="quantidade">
-              <option value="" disabled selected>Selecione</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
+            <input type="number" id="quantidade" name="quantidade" placeholder="Ex: 1" value="1">
             </select>
           </div>
           <div class="campo">
@@ -53,9 +52,10 @@
               </div>
               
               <div class="cartao preco">
-                <p><strong>Preço</strong></p>
+                <p><strong>Preço do produto</strong></p>
                 <span>R$00,00</span>
-                <input type="hidden" name="preco_total" value="500.50" readonly></input>
+                {{-- Preço dinamico do produto selecionado --}}
+                {{-- <input type="hidden" name="preco_total" value="500.50" readonly></input> --}}
               </div>
             </div>
 
@@ -65,6 +65,12 @@
                 <span>Carrinho de compras</span>
               </div>
               <div class="carrinho-itens">
+
+                {{-- Aqui são inseridos os itens do carrinho --}}
+              </div>
+              <div class="carrinho-total">
+                <strong>Total: </strong>
+                <span id="total-carrinho">R$ 0,00</span>
                 <div class="item">3x Produto1</div>
                 <input type="hidden" name="items[0][id]" value="1" readonly></input>
                 <input type="hidden" name="items[0][quantidade]" value="3" readonly></input>

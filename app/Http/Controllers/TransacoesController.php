@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Item_transacao;
 use App\Models\Transacoes;
+use App\Models\Produto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TransacoesController extends Controller
 {
@@ -21,7 +23,8 @@ class TransacoesController extends Controller
      */
     public function create()
     {
-        return view('cadastroVenda');
+        $produtos = Produto::all();
+        return view('cadastroVenda', compact('produtos'));
     }
 
     /**
@@ -34,7 +37,7 @@ class TransacoesController extends Controller
         //Criando a nova transação
         $MovCreated = new Transacoes();
         $MovCreated->tipo = 0;
-        $MovCreated->valor_total = $mov['preco_total'];
+        $MovCreated->valor_total = $mov['valor_total'];
         $MovCreated->forma_pagamento = $mov['pagamento'];
         $MovCreated->save();
 
@@ -49,8 +52,9 @@ class TransacoesController extends Controller
             $ItCreated->save();
         }
 
-        return view('cadastroVenda');
-        //dd($mov);
+        // Busca os produtos novamente para retornar à view
+        $produtos = Produto::all();
+        return view('cadastroVenda', compact('produtos'));
     }
 
     /**

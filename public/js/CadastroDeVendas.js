@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const spanPreco = document.querySelector('.cartao.preco span');
     const spanTotalCarrinho = document.getElementById('total-carrinho');
     const btnAdicionar = document.querySelector('.adicionar');
+    const btnFinalizar = document.querySelector('.finalizar');
     const carrinhoItens = document.querySelector('.carrinho-itens');
+    const formVenda = document.getElementById('formVenda');
     let valorTotalCarrinho = 0;
     let itensCarrinho = [];
 
@@ -36,9 +38,31 @@ document.addEventListener('DOMContentLoaded', function() {
         btnRemover.className = 'btn-remover';
         btnRemover.textContent = '×';
         btnRemover.onclick = () => removerItem(index);
+
+        // Criando os inputs hidden como arrays
+        const inputId = document.createElement('input');
+        inputId.type = 'hidden';
+        inputId.name = `items[${index}][id]`;
+        inputId.value = item.id;
+        inputId.readOnly = true;
+
+        const inputQuantidade = document.createElement('input');
+        inputQuantidade.type = 'hidden';
+        inputQuantidade.name = `items[${index}][quantidade]`;
+        inputQuantidade.value = item.quantidade;
+        inputQuantidade.readOnly = true;
+
+        const inputDesconto = document.createElement('input');
+        inputDesconto.type = 'hidden';
+        inputDesconto.name = `items[${index}][desconto]`;
+        inputDesconto.value = item.desconto;
+        inputDesconto.readOnly = true;
         
         itemDiv.appendChild(textoItem);
         itemDiv.appendChild(btnRemover);
+        itemDiv.appendChild(inputId);
+        itemDiv.appendChild(inputQuantidade);
+        itemDiv.appendChild(inputDesconto);
         carrinhoItens.appendChild(itemDiv);
       });
       
@@ -94,10 +118,16 @@ document.addEventListener('DOMContentLoaded', function() {
           textoItem += ` (${desconto}% OFF)`;
         }
 
-        itensCarrinho.push({
+        // Criando o item como um array com as propriedades necessárias
+        const novoItem = {
           texto: textoItem,
-          preco: precoTotal
-        });
+          preco: precoTotal,
+          id: produtoSelecionado.value,
+          quantidade: quantidade,
+          desconto: desconto
+        };
+
+        itensCarrinho.push(novoItem);
         
         atualizarCarrinho();
         
@@ -109,6 +139,51 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
+    btnFinalizar.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      if (itensCarrinho.length === 0) {
+        alert('Adicione pelo menos um item ao carrinho antes de finalizar a venda.');
+        return;
+      }
+
+      // Limpa inputs antigos
+      const oldInputs = formVenda.querySelectorAll('input[name^="items"]');
+      oldInputs.forEach(input => input.remove());
+
+      // Adiciona o valor total ao formulário
+      const inputTotal = document.createElement('input');
+      inputTotal.type = 'hidden';
+      inputTotal.name = 'valor_total';
+      inputTotal.value = valorTotalCarrinho;
+      formVenda.appendChild(inputTotal);
+
+      // Adiciona os itens ao formulário
+      itensCarrinho.forEach((item, index) => {
+        const inputId = document.createElement('input');
+        inputId.type = 'hidden';
+        inputId.name = `items[${index}][id]`;
+        inputId.value = item.id;
+
+        const inputQuantidade = document.createElement('input');
+        inputQuantidade.type = 'hidden';
+        inputQuantidade.name = `items[${index}][quantidade]`;
+        inputQuantidade.value = item.quantidade;
+
+        const inputDesconto = document.createElement('input');
+        inputDesconto.type = 'hidden';
+        inputDesconto.name = `items[${index}][desconto]`;
+        inputDesconto.value = item.desconto;
+
+        formVenda.appendChild(inputId);
+        formVenda.appendChild(inputQuantidade);
+        formVenda.appendChild(inputDesconto);
+      });
+
+      // Envia o formulário
+      formVenda.submit();
+    });
+
     selectProduto.addEventListener('change', calcularPrecoTotal);
     inputQuantidade.addEventListener('input', calcularPrecoTotal);
     inputDesconto.addEventListener('input', calcularPrecoTotal);
@@ -119,4 +194,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     calcularPrecoTotal();
     atualizarTotalCarrinho();
-  });
+});

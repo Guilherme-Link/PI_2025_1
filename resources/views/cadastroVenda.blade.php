@@ -18,7 +18,7 @@
     <div class="right">
         <h1>Cadastro de Venda</h1>
         <div class="linha">
-        <form  action="{{ route('transacao.store') }}" method="POST" class="formulario">
+        <form action="{{ route('transacao.store') }}" method="POST" class="formulario" id="formVenda">
           @csrf
           <div class="campo">
             <label for="produto">Produto:</label>
@@ -65,26 +65,14 @@
                 <span>Carrinho de compras</span>
               </div>
               <div class="carrinho-itens">
-
                 {{-- Aqui são inseridos os itens do carrinho --}}
               </div>
               <div class="carrinho-total">
+                
                 <strong>Total: </strong>
+                
                 <span id="total-carrinho">R$ 0,00</span>
-                <div class="item">3x Produto1</div>
-                <input type="hidden" name="items[0][id]" value="1" readonly></input>
-                <input type="hidden" name="items[0][quantidade]" value="3" readonly></input>
-                <input type="hidden" name="items[0][desconto]" value="0" readonly></input>
-
-                <div class="item">1x Produto2</div>
-                <input type="hidden" name="items[1][id]" value="2" readonly></input>
-                <input type="hidden" name="items[1][quantidade]" value="2" readonly></input>
-                <input type="hidden" name="items[1][desconto]" value="5" readonly></input>
-
-                <div class="item">1x Produto4</div>
-                <input type="hidden" name="items[2][id]" value="3" readonly></input>
-                <input type="hidden" name="items[2][quantidade]" value="1" readonly></input>
-                <input type="hidden" name="items[2][desconto]" value="0" readonly></input>
+                
               </div>
             </div>
           </div>

@@ -3,13 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\FornecedorController;
-
 use App\Http\Controllers\TransacoesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Rotas de Produtos
 Route::get('/listarProduto', [ProductsController::class, 'index'])->name('product.index');
 Route::get('/cadastroProduto', [ProductsController::class, 'create'])->name('product.create');
 Route::post('/adicionarProduto', [ProductsController::class, 'store'])->name('product.store');
@@ -17,7 +18,7 @@ Route::get('/editarProduto/{produto}', [ProductsController::class, 'edit'])->nam
 Route::put('/atualizarProduto/{produto}', [ProductsController::class, 'update'])->name('product.update');
 Route::delete('/deletarProduto/{produto}', [ProductsController::class, 'destroy'])->name('product.destroy');
 
-Route::get('/cadastroVenda', [VendaController::class, 'create'])->name('venda.create');
+// Rotas de Fornecedores
 Route::get('/cadastroFornecedor', [FornecedorController::class, 'create'])->name('fornecedor.create');
 Route::post('/adicionarFornecedor', [FornecedorController::class, 'store'])->name('fornecedor.store');
 Route::get('/listarFornecedor', [FornecedorController::class, 'index'])->name('fornecedor.index');
@@ -25,17 +26,11 @@ Route::get('/editarFornecedor/{fornec}', [FornecedorController::class, 'edit'])-
 Route::post('/atualizarFornecedor/{fornec}', [FornecedorController::class, 'update'])->name('fornecedor.update');
 Route::delete('/deletarFornecedor/{fornec}', [FornecedorController::class, 'destroy'])->name('fornecedor.destroy');
 
+// Rotas de Vendas
 Route::get('/cadastroVenda', [TransacoesController::class, 'create'])->name('transacao.create');
-Route::post('/adicionarVenda', [TransacoesController::class, 'store'])->name('transacao.store');
+Route::post('/cadastroVenda', [TransacoesController::class, 'store'])->name('transacao.store');
 
-
-Route::get('/modalTeste', function () {
-    return view('modalTeste');
-});
-Route::get('/modalTeste', function () {
-    return view('modalTeste');
-});
-
+// Rotas de Autenticação
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

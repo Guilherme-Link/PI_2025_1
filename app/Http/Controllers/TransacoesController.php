@@ -37,7 +37,7 @@ class TransacoesController extends Controller
 
         //Criando a nova transação
         $MovCreated = new Transacoes();
-        $MovCreated->tipo = 0;
+        $MovCreated->tipo = $mov['tipo_transacao'];
         $MovCreated->valor_total = $mov['valor_total'];
         $MovCreated->forma_pagamento = $mov['pagamento'];
         $MovCreated->save();

@@ -21,6 +21,7 @@ body {
     grid-area: article;   
     padding: 1.2em;
     margin: 0 auto;
+    
     }
 
 
@@ -47,6 +48,11 @@ body {
       grid-template-rows: 80px 1fr 70px 1fr 70px;  
       grid-template-columns: 1fr;
    }
+
+   #mainArticle { 
+    margin: 60px;
+    
+    }
   
   
   }

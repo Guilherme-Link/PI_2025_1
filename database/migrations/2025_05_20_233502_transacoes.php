@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transacoes', function (Blueprint $table): void {
             $table->id();
-            $table->integer('tipo');//0 - Entrada | 1 - Saída
+            $table->integer('tipo');//0 - Entrada "Venda" | 1 - Saída "Compra"
             $table->decimal('valor_total', total: 8, places: 2);
             $table->text('forma_pagamento');
             $table->timestamps();

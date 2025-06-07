@@ -1,9 +1,15 @@
+body{
+  overflow-y: hidden;
+  padding: 0;
+  margin: 0;
+}
+
 .containerTable{
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  padding: 50px 0;
+  padding: 30px 0;
   margin-top: 20px;
 }
 
@@ -19,7 +25,7 @@
   padding: 0;
   overflow-x: auto;
   width: 100%;
-  margin: 20px 0;
+  margin: 10px 0;
   display: flex;
   justify-content: center;
   background-color: #1e1e1e;
@@ -83,6 +89,7 @@
 
 .styledTable td {
   border: none;
+  width: 170px;
 }
 
 /* Estilo dos links de ação */
@@ -153,5 +160,41 @@ td form button {
     width: 14px;
     height: 14px;
   }
+}
+
+.table-scroll {
+    max-height: 500px;
+    overflow-y: auto;
+    margin: 20px 0;
+}
+
+.table-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.table-scroll table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-scroll thead {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
 }
 

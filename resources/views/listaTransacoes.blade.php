@@ -14,37 +14,47 @@
 
     <div class="container">
       <div class="left leftF">
-        <img src="{{ asset('imgs/caminhoazinhoAzul.png') }}" alt="caminhao azul">
+        <img src="{{ asset('imgs/maozinhaDinheiro.png') }}" alt="Venda" />
       </div>
       <div class="right">
         <h1>Lista de transações</h1>
         <div class="tableWrapper">
-          <table class="styledTable">
-            <tr>
-              <td>ID</td>
-              <td>Data</td>
-              <td>Valor</td>
-              <td>Tipo</td>
-              <td>Status</td>
-              <td>Excluir</td>
-            </tr>
-          @foreach ($transacoes as $transacao)
-            <tr>
-              <td>{{ $transacao->id }}</td>
-              <td>{{ $transacao->data }}</td>
-              <td>{{ $transacao->valor }}</td>
-              <td>{{ $transacao->tipo }}</td>
-              <td>{{ $transacao->status }}</td>
-              <td>
-                <form method="POST" action="{{ route('transacao.destroy',$transacao) }}">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="botao-excluir">Excluir</button>
-                </form>
-              </td>
-            <tr>
-          @endforeach
-          </table>
+          <div class="table-scroll">
+            <table class="styledTable">
+              <thead>
+                <tr>
+                  <td>ID</td>
+                  <td>Valor total</td>
+                  <td>Tipo</td>
+                  <td>Forma de pagamento</td>
+                  <td>Excluir</td>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($transacoes as $transacao)
+                  @if ($transacao->tipo == 0)
+                    <tr style="background-color: #3CC79A; color: white; border-bottom:solid #000 1px">
+                  @else
+                    <tr style="background-color: #CA3939; color: white; border-bottom:solid #000 1px">
+                  @endif
+                    <td>
+                      {{ $transacao->created_at->format('d/m/Y h:i') }}
+                    </td>
+                    <td>R${{ $transacao->valor_total }}</td>
+                    <td>{{ $transacao->tipo == 0 ? 'Venda' : 'Compra' }}</td>
+                    <td>{{ $transacao->forma_pagamento }}</td>
+                    <td>
+                      <form method="POST" action="{{ route('transacao.destroy',$transacao) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="botao-excluir">Excluir</button>
+                      </form>
+                    </td>
+                  </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

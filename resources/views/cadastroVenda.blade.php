@@ -6,7 +6,7 @@
   <title>Cadastro de Venda</title>
   <link rel="stylesheet" href="{{ asset('css/cadastro.css') }}">
   <link rel="stylesheet" href="{{ asset('css/cadastroVenda.css') }}">
-  <script src="{{ asset('js/cadastroDeVendas.js') }}"></script>
+  <script src="{{ asset('js/CadastroDeVendas.js') }}"></script>
 </head>
 <body>
   <a href="/" class="back-button">Voltar</a>

@@ -16,7 +16,7 @@
     </div>
     
     <div class="right">
-        <h1>Cadastro de Venda</h1>
+        <h1>Cadastro de Compra</h1>
         <div class="linha">
         <form action="{{ route('transacao.store') }}" method="POST" class="formulario" id="formVenda">
           @csrf
@@ -25,7 +25,7 @@
             <select id="produto" name="produto">
               <option value="" disabled selected>Selecione</option>
               @foreach($produtos as $produto)
-                <option value="{{ $produto->id }}">{{ $produto->nome }} - R$ {{ number_format($produto->preco, 2, ',', '.') }}</option>
+                <option value="{{ $produto->id }}">{{ $produto->nome }} - R$ {{ number_format($produto->custo, 2, ',', '.') }}</option>
               @endforeach
             </select>
           </div>
@@ -38,7 +38,7 @@
             <label for="desconto">Desconto:</label>
             <input type="number" id="desconto" placeholder="R$">
           </div>
-          <input type="hidden" name="tipo_transacao" value="0">
+          <input type="hidden" name="tipo_transacao" value="1">
         </div>
         <div class="under-container">
           <div class="linha">

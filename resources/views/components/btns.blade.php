@@ -4,6 +4,7 @@
     <a href="/cadastroProduto"><button class="botao" id="btn1"> Cadastrar Produto</button></a>
     <a href="/cadastroFornecedor"><button class="botao" id="btn2"> Cadastrar Fornecedor</button></a>
     <a href="/cadastroVenda"><button class="botao" id="btn3"> Cadastrar Venda</button></a>
+    <a href="/cadastroCompra"><button class="botao" id="btn4"> Cadastrar Compra</button></a>
     </div>
 
 

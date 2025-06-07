@@ -22,10 +22,16 @@ class TransacoesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function createVenda()
     {
         $produtos = Produto::all();
         return view('cadastroVenda', compact('produtos'));
+    }
+
+    public function createCompra()
+    {
+        $produtos = Produto::all();
+        return view('cadastroCompra', compact('produtos'));
     }
 
     /**
@@ -53,9 +59,9 @@ class TransacoesController extends Controller
             $ItCreated->save();
         }
 
-        // Busca os produtos novamente para retornar à view
-        $produtos = Produto::all();
-        return view('cadastroVenda', compact('produtos'));
+        // Retorna à lista de transações
+        $transacoes = Transacoes::all();
+        return view('listaTransacoes', compact('transacoes'));
     }
 
     /**

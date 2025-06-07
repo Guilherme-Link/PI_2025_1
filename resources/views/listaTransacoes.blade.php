@@ -38,7 +38,7 @@
                     <tr style="background-color: #CA3939; color: white; border-bottom:solid #000 1px">
                   @endif
                     <td>
-                      {{ $transacao->created_at->format('d/m/Y h:i') }}
+                      {{ $transacao->created_at->subMinutes(180)->format('d/m/Y H:i') }}
                     </td>
                     <td>R${{ $transacao->valor_total }}</td>
                     <td>{{ $transacao->tipo == 0 ? 'Venda' : 'Compra' }}</td>

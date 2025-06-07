@@ -24,7 +24,7 @@
           <div>
             <li><a href="/cadastroProduto">Produto</a></li>
             <li><a href="/cadastroFornecedor">Fornecedor</a></li>
-            <li><a href="/cadastroVenda">Venda</a></li>
+            <li><a href="/cadastroVenda">Transações</a></li>
           </div>
         </ul>
       </li>

@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let precoTotal = preco * quantidade;
         
         if (desconto > 0) {
-          const valorDesconto = (precoTotal * desconto) / 100;
+          const valorDesconto = desconto;
           precoTotal = precoTotal - valorDesconto;
         }
         
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let precoTotal = preco * quantidade;
 
         if (desconto > 0) {
-          const valorDesconto = (precoTotal * desconto) / 100;
+          const valorDesconto = desconto;
           precoTotal = precoTotal - valorDesconto;
         }
 

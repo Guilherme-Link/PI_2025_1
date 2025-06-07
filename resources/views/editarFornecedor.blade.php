@@ -72,7 +72,7 @@
             <input type="text" value="{{ $fornec->telefone }}" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
           </div>
           <div class="button-container">
-            <button type="submit">Atualizar</button>
+            <button type="submit" class="button-estilo">Atualizar</button>
           </div>
         </form>
       </div>

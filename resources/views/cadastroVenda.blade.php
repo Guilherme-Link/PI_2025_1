@@ -41,10 +41,10 @@
           <div class="campo">
             <label for="tipo_transacao">Tipo de Transação:</label>
             <div class="switch-container">
-              <input type="radio" id="compra" name="tipo_transacao" value="compra" class="switch-input">
+              <input type="radio" id="compra" name="tipo_transacao" value="1" class="switch-input" onclick="handleRadioClick(this)">
               <label for="compra" class="switch-label">Compra</label>
               
-              <input type="radio" id="venda" name="tipo_transacao" value="venda" class="switch-input" checked>
+              <input type="radio" id="venda" name="tipo_transacao" value="0" class="switch-input" onclick="handleRadioClick(this)" checked>
               <label for="venda" class="switch-label">Venda</label>
             </div>
           </div>
@@ -96,5 +96,17 @@
       </form>
     </div>
   </div>
+
+  <script>
+    function handleRadioClick(radio) {
+      // Remove checked de todos os radio buttons
+      document.querySelectorAll('input[name="tipo_transacao"]').forEach(input => {
+        input.checked = false;
+      });
+      
+      // Adiciona checked ao radio clicado
+      radio.checked = true;
+    }
+  </script>
 </body>
 </html>

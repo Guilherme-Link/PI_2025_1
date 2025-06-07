@@ -63,7 +63,7 @@
         </div>
 
         <div class="button-container">
-          <button type="submit">Atualizar Produto</button>
+          <button type="submit" class="button-estilo">Atualizar Produto</button>
         </div>
       </form>
     </div>

@@ -80,7 +80,7 @@
         </div>
         <div class="button-container">
           <button class="adicionar">Adicionar</button>
-          <button class="finalizar">Finalizar Venda</button>
+          <button class="finalizar">Finalizar Compra</button>
 
         </div>
         </div>

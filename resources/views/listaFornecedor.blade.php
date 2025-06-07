@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Cadastro de Fornecedor</title>
+    <title>Listar Fornecedor</title>
     
     <link rel="stylesheet" href="{{ asset('css/cadastro.css') }}">
     <link rel="stylesheet" href="{{ asset('css/table.css') }}">
@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    @include('modalDelete')
+    @include('modalDeleteFornecedor')
 
     @if(session('success'))
       <script>

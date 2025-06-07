@@ -15,7 +15,8 @@ class TransacoesController extends Controller
      */
     public function index()
     {
-        //
+        $transacoes = Transacoes::all();
+        return view('listaTransacoes', compact('transacoes'));
     }
 
     /**
@@ -84,8 +85,10 @@ class TransacoesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Transacoes $transacao)
     {
-        //
+        $transacao->items_transacao()->delete();
+        $transacao->delete();
+        return redirect()->route('transacao.index');
     }
 }

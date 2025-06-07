@@ -11,7 +11,7 @@ class Item_transacao extends Model
 
     public function transacao()
     {
-        return $this->belongsTo(Transacoes::class);
+        return $this->belongsTo(Transacoes::class, 'id_transacao');
     }
 
 }

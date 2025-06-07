@@ -27,7 +27,8 @@ Route::post('/atualizarFornecedor/{fornec}', [FornecedorController::class, 'upda
 Route::delete('/deletarFornecedor/{fornec}', [FornecedorController::class, 'destroy'])->name('fornecedor.destroy');
 
 // Rotas de Vendas
-Route::get('/cadastroVenda', [TransacoesController::class, 'create'])->name('transacao.create');
+Route::get('/cadastroVenda', [TransacoesController::class, 'createVenda'])->name('venda.create');
+Route::get('/cadastroCompra', [TransacoesController::class, 'createCompra'])->name('compra.create');
 Route::post('/cadastroVenda', [TransacoesController::class, 'store'])->name('transacao.store');
 Route::get('/listaTransacoes', [TransacoesController::class, 'index'])->name('transacao.index');
 Route::delete('/listaTransacoes/{transacao}', [TransacoesController::class, 'destroy'])->name('transacao.destroy');

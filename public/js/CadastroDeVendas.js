@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let textoItem = `${quantidade}x ${nomeProduto}`;
         if (desconto > 0) {
-          textoItem += ` (${desconto}% OFF)`;
+          textoItem += ` (R$ ${desconto} OFF)`;
         }
 
         // Criando o item como um array com as propriedades necessárias

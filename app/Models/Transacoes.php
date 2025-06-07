@@ -11,6 +11,6 @@ class Transacoes extends Model
 
    public function items_transacao()
     {
-        return $this->hasMany(Item_transacao::class);
+        return $this->hasMany(Item_transacao::class, 'id_transacao');
     }
 }

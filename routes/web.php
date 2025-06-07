@@ -29,6 +29,8 @@ Route::delete('/deletarFornecedor/{fornec}', [FornecedorController::class, 'dest
 // Rotas de Vendas
 Route::get('/cadastroVenda', [TransacoesController::class, 'create'])->name('transacao.create');
 Route::post('/cadastroVenda', [TransacoesController::class, 'store'])->name('transacao.store');
+Route::get('/listaTransacoes', [TransacoesController::class, 'index'])->name('transacao.index');
+Route::delete('/listaTransacoes/{transacao}', [TransacoesController::class, 'destroy'])->name('transacao.destroy');
 
 // Rotas de Autenticação
 Route::get('/dashboard', function () {

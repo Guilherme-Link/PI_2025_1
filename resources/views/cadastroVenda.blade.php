@@ -38,6 +38,16 @@
             <label for="desconto">Desconto:</label>
             <input type="number" id="desconto" placeholder="R$">
           </div>
+          <div class="campo">
+            <label for="tipo_transacao">Tipo de Transação:</label>
+            <div class="switch-container">
+              <input type="radio" id="compra" name="tipo_transacao" value="compra" class="switch-input">
+              <label for="compra" class="switch-label">Compra</label>
+              
+              <input type="radio" id="venda" name="tipo_transacao" value="venda" class="switch-input" checked>
+              <label for="venda" class="switch-label">Venda</label>
+            </div>
+          </div>
         </div>
         <div class="under-container">
           <div class="linha">

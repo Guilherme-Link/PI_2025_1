@@ -37,7 +37,7 @@
           <div>
             <li><a href="/listarProduto">Produtos</a></li>
             <li><a href="/listarFornecedor">Fornecedores</a></li>
-            <li><a href="#">Vendas</a></li>
+            <li><a href="/listaTransacoes">Transações</a></li>
           </div>
         </ul>
       </li>

@@ -9,30 +9,28 @@
           </button>
       </li>
 
-      
-      <li>
-      <button onclick=toggleSubMenu(this) class="dropdown-btn" class="setinha">Usuário</button>
-        <ul class="sub-menu">
-          <div>
-            @if(Auth::check())
-              <li>{{ Auth::user()->name }}</li>
-              <li><a href="{{ route('profile.edit') }}">Editar perfil</a></li>
-              <li>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit">Logout</button>
-                </form>
-              </li>
-            @else
-              <li>Anônimo</li>
-              <li><a href="/login">Login</a></li>
-              <li><a href="/register">Cadastrar</a></li>
-            @endif
+      <div class="user-name">
+        @if(Auth::check())
+          <div class="user-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+            </svg>
           </div>
-        </ul>
-      </li>
+          <div class="user-text">
+            {{ Auth::user()->name }}
 
-
+          </div>
+        @else
+          <div class="user-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+            </svg>
+          </div>
+          <div class="user-text">
+            Anônimo
+          </div>
+        @endif
+      </div>
       <li class="active">
         <a href="/">
           <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z"/></svg>
@@ -67,8 +65,41 @@
           </div>
         </ul>
       </li>
-    </ul>
+      </li>
+        <button onclick=toggleSubMenu(this) class="dropdown-btn" class="setinha">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+            <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+          </svg>
+          <span>Usuário</span>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-361q-8 0-15-2.5t-13-8.5L268-556q-11-11-11-28t11-28q11-11 28-11t28 11l156 156 156-156q11-11 28-11t28 11q11 11 11 28t-11 28L508-372q-6 6-13 8.5t-15 2.5Z"/></svg>
+        </button>
+        <ul class="sub-menu">
+            <div>
+              @if(Auth::check())
+                <li><a href="{{ route('profile.edit') }}">Editar perfil</a></li>
+              @else
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Cadastrar</a></li>
+              @endif
+            </div>
+        </ul>
+      </li>
+
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="logout">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff4444" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+          </svg>
+          <span>Sair</span>
+        </button>
+    </form>
+      </ul>
+
   </nav>
+
+
 
   <script>
     const toggleButton = document.getElementById('toggle-btn')

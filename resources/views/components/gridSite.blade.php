@@ -9,6 +9,7 @@
     <div class="cards">
       <x-card></x-card>
       
+      
     </div>
 
     <div class="btns">

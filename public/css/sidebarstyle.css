@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'variables.css';
+@import 'reset.css';
+
 :root {
   --baseSidebar: #353535; 
   --padraoBack: #D9D9D9; 
@@ -21,28 +24,32 @@ body{
   height: 100vh;
   width: 250px;
   font-size: 16px;
-  padding: 5px 1em;
-  background-color: var(--baseSidebar);
-  color: #fff;
+  padding: var(--spacing-xs) 1em;
+  background-color: var(--background-dark);
+  color: var(--text-light);
   position: fixed; 
   top: 0; 
   left: 0; 
   z-index: 1000; 
-  transition: 300ms ease-in-out; 
+  transition: var(--transition-normal); 
   overflow: hidden; 
   text-wrap: nowrap; 
 }
 #sidebar.close{
-  padding: 6px;
+  padding: var(--spacing-xs);
   width: 60px;
 }
+
+
 #sidebar ul{
   list-style: none;
 }
+
+
 #sidebar > ul > li:first-child{
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 16px;
+  margin-bottom: var(--spacing-md);
   .logo{
     font-weight: 600;
   }
@@ -51,14 +58,16 @@ body{
 
 
 #sidebar a, #sidebar .dropdown-btn, #sidebar .logo{
-  border-radius: .5em;
-  padding: .85em;
+  border-radius: var(--border-radius-md);
+  padding: 0.85em;
   text-decoration: none;
-  color: var(--branco);
+  color: var(--text-light);
   display: flex;
   align-items: center;
   gap: 1em;
 }
+
+
 .dropdown-btn{
   width: 100%;
   text-align: left;
@@ -70,8 +79,13 @@ body{
 
 #sidebar svg{
   flex-shrink: 0;
-  fill: var(--branco);
+  fill: var(--text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+
 #sidebar a span, #sidebar .dropdown-btn span{
   flex-grow: 1;
 }
@@ -79,7 +93,7 @@ body{
 #sidebar .sub-menu{
   display: grid;
   grid-template-rows: 0fr;
-  transition: 300ms ease-in-out;
+  transition: var(--transition-normal);
 
   > div{
     overflow: hidden;
@@ -89,7 +103,7 @@ body{
   grid-template-rows: 1fr;
 }
 .dropdown-btn svg{
-  transition: 200ms ease;
+  transition: var(--transition-fast);
 }
 
 #sidebar .sub-menu a{
@@ -99,7 +113,7 @@ body{
   margin-left: auto;
   padding: 0.8em;
   border: none;
-  border-radius: .5em;
+  border-radius: var(--border-radius-md);
   background: none;
   cursor: pointer;
   rotate: 180deg;
@@ -118,12 +132,12 @@ svg:last-child{
 
 .user-name {
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 10px;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm);
     display: flex;
     align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
+    gap: var(--spacing-sm);
+    transition: var(--transition-normal);
     position: relative;
 }
 
@@ -139,20 +153,20 @@ svg:last-child{
 }
 
 .user-text {
-    color: #e8eaed;
+    color: var(--text-light);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--spacing-sm);
 }
 
 .user-text::after {
     content: '';
     width: 8px;
     height: 8px;
-    background-color: #4CAF50;
+    background-color: var(--secondary-color);
     border-radius: 50%;
     display: inline-block;
 }
@@ -164,37 +178,37 @@ svg:last-child{
 
 .sidebar.close .user-name {
     justify-content: center;
-    padding: 10px 5px;
+    padding: var(--spacing-sm) var(--spacing-xs);
 }
 
 .logout{
     width: 100%;
-    padding: 10px;
+    padding: var(--spacing-sm);
     background-color: rgba(255, 255, 255, 0);
     border: none;
-    border-radius: 8px;
-    color: #e8eaed;
+    border-radius: var(--border-radius-md);
+    color: var(--text-light);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition-normal);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--spacing-sm);
 }
 
 .logout svg {
     min-width: 24px;
     height: 24px;
     margin-left: 4px;
-    fill: #ff4444 !important;
+    fill: var(--danger-color) !important;
 }
 
 .logout span {
-    color: #e8eaed;
+    color: var(--text-light);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 15px;
-    color:#ff4444 ;
+    color:var(--danger-color);
 }
 
 /* Quando a sidebar estiver fechada */
@@ -204,7 +218,7 @@ svg:last-child{
 
 .sidebar.close form button {
     justify-content: center;
-    padding: 10px 5px;
+    padding: var(--spacing-sm) var(--spacing-xs);
 }
 
 .logout:hover {

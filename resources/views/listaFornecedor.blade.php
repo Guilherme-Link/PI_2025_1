@@ -52,13 +52,8 @@
         </div>
       </div>
     </div>
-
     @include('modalDeleteFornecedor')
-
-    @if(session('success'))
-      <script>
-        alert('{{ session('success') }}');
-      </script>
-    @endif
+    @include('modalTriste')
+    @include('modalFeliz')
   </body>
 </html>

@@ -31,10 +31,15 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $product = $request->all();
-        $product['quantidade'] = 0;
-        $productCreated = Produto::create($product);
-        return redirect('/listarProduto');
+        try {
+            $product = $request->all();
+            $product['quantidade'] = 0;
+            $productCreated = Produto::create($product);
+            return redirect('/listarProduto');->with('success', 'Produto cadastrado com sucesso!');
+        } catch (\Exception $e) {
+            return redirect()->route('product.index')->with('error', 'Erro ao cadastrar o produto.');
+        }
+        
     }
 
     /**
@@ -59,19 +64,23 @@ class ProductsController extends Controller
      */
     public function update(Request $request, Produto $produto)
     {
-        $newProduto = $request->all();
+        try {
+            $newProduto = $request->all();
 
-        $produto->nome = $newProduto['nome'];
-        $produto->id_fornecedor = $newProduto['id_fornecedor'];
-        $produto->modelo = $newProduto['modelo'];
-        $produto->marca = $newProduto['marca'];
-        $produto->tipo = $newProduto['tipo'];
-        $produto->custo = $newProduto['custo'];
-        $produto->preco = $newProduto['preco'];
-        $produto->observacao = $newProduto['observacao'];
+            $produto->nome = $newProduto['nome'];
+            $produto->id_fornecedor = $newProduto['id_fornecedor'];
+            $produto->modelo = $newProduto['modelo'];
+            $produto->marca = $newProduto['marca'];
+            $produto->tipo = $newProduto['tipo'];
+            $produto->custo = $newProduto['custo'];
+            $produto->preco = $newProduto['preco'];
+            $produto->observacao = $newProduto['observacao'];
 
-        $produto->save();
-        return redirect()->route('product.index');
+            $produto->save();
+            return redirect()->route('product.index')->with('success', 'Produto atualizado com sucesso!');
+        } catch (\Exception $e) {
+            return redirect()->route('fornecedor.index')->with('error', 'Erro ao atualizar o produto.');
+        }
     }
 
     /**
@@ -79,6 +88,15 @@ class ProductsController extends Controller
      */
     public function destroy(Produto $produto)
     {
+        try {
+            $produto->delete();
+            return redirect()->route('product.index')->with('success', 'Produto excluído com sucesso!');
+        } catch (\Exception $e) {
+            //Verifica se o erro é de integridade referencial (chave estrangeira)
+            if ($e->getCode() == 23000) {
+                return redirect()->route('product.index')->with('error', 'Não foi possível excluir o produto porque existem registros vinculados a ele em outras tabelas.');
+            }
+        }
         $produto->delete();
         return redirect()->route('product.index');
     }

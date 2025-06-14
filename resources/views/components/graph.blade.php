@@ -34,7 +34,7 @@
 var data = {
   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
   datasets: [{
-    label: "Dataset #1",
+    label: "Vendas 2025",
     backgroundColor: "rgba(255,99,132,0.2)",
     borderColor: "rgb(99, 107, 255)",
     borderWidth: 2,

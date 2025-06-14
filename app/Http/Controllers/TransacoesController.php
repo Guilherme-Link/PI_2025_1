@@ -60,13 +60,21 @@ class TransacoesController extends Controller
             if ($mov['tipo_transacao'] == 0){
                 //Em caso de venda, é gravado o valor unitário de venda
                 $ItCreated->valor_unitario = $produto[0]->preco;
+
+                //Atualização do estoque
+                $produto[0]->quantidade -= $item['quantidade'];
             }
             else {
                 //Em caso de compra, é gravado o custo unitário
                 $ItCreated->valor_unitario = $produto[0]->custo;
+
+                //Atualização do estoque
+                $produto[0]->quantidade += $item['quantidade'];
             }
 
+            $produto[0]->save();
             $ItCreated->save();
+
         }
 
         // Retorna a lista de transações

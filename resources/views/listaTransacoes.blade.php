@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="{{ asset('css/cadastro.css') }}">
     <link rel="stylesheet" href="{{ asset('css/table.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
     <script src="{{ asset('js/format.js') }}"></script>
   </head>
   <body>
@@ -60,6 +61,5 @@
     </div>
     @include('modalDeleteTransacao')
     @include('modalTriste')
-    @include('modalFeliz')
   </body>
 </html>

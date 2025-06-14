@@ -3,6 +3,7 @@
         <h1>Confirmar Exclusão</h1>
         <p>Tem certeza que deseja excluir esta transação?<br>Esta ação não pode ser desfeita.</p>
         <div class="modal-actions">
+
             <button class="btn-cancel" onclick="closeDeleteTransacaoModal()">Cancelar</button>
             <form id="deleteTransacaoForm" action="" method="POST" style="display: inline;">
                 @csrf

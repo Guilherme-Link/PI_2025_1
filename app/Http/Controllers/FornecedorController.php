@@ -29,9 +29,13 @@ class FornecedorController extends Controller
      */
     public function store(Request $request)
     { 
-        $fornec = $request->all();
-        Fornecedor::create($fornec);
-        return redirect()->route('fornecedor.index');
+        try {
+            $fornec = $request->all();
+            Fornecedor::create($fornec);
+            return redirect()->route('fornecedor.index')->with('success', 'Fornecedor cadastrado com sucesso!');
+        } catch (\Exception $e) {
+            return redirect()->route('fornecedor.index')->with('error', 'Erro ao cadastrar o fornecedor.');
+        }
     }
 
     /**
@@ -55,23 +59,27 @@ class FornecedorController extends Controller
      */
     public function update(Request $request, Fornecedor $fornec)
     {
-        $newfornec = $request->all();
+        try {
+            $newfornec = $request->all();
 
-        $fornec->nome = $newfornec['nome'];
-        $fornec->cnpj = $newfornec['cnpj'];
-        $fornec->razao_social = $newfornec['razao_social'];
-        $fornec->insc_estadual = $newfornec['insc_estadual'];
-        $fornec->cep = $newfornec['cep'];
-        $fornec->estado = $newfornec['estado'];
-        $fornec->cidade = $newfornec['cidade'];
-        $fornec->numero = $newfornec['numero'];
-        $fornec->bairro = $newfornec['bairro'];
-        $fornec->complemento = $newfornec['complemento'];
-        $fornec->email = $newfornec['email'];
-        $fornec->telefone = $newfornec['telefone'];
+            $fornec->nome = $newfornec['nome'];
+            $fornec->cnpj = $newfornec['cnpj'];
+            $fornec->razao_social = $newfornec['razao_social'];
+            $fornec->insc_estadual = $newfornec['insc_estadual'];
+            $fornec->cep = $newfornec['cep'];
+            $fornec->estado = $newfornec['estado'];
+            $fornec->cidade = $newfornec['cidade'];
+            $fornec->numero = $newfornec['numero'];
+            $fornec->bairro = $newfornec['bairro'];
+            $fornec->complemento = $newfornec['complemento'];
+            $fornec->email = $newfornec['email'];
+            $fornec->telefone = $newfornec['telefone'];
 
-        $fornec->save();
-        return redirect()->route('fornecedor.index');
+            $fornec->save();
+            return redirect()->route('fornecedor.index')->with('success', 'Fornecedor atualizado com sucesso!');
+        } catch (\Exception $e) {
+            return redirect()->route('fornecedor.index')->with('error', 'Erro ao atualizar o fornecedor.');
+        }
     }
 
     /**
@@ -79,7 +87,15 @@ class FornecedorController extends Controller
      */
     public function destroy(Fornecedor $fornec)
     {
-        $fornec->delete();
-        return redirect()->route('fornecedor.index');
+        try {
+            $fornec->delete();
+            return redirect()->route('fornecedor.index')->with('success', 'Fornecedor excluído com sucesso!');
+        } catch (\Exception $e) {
+            //Verifica se o erro é de integridade referencial (chave estrangeira)
+            if ($e->getCode() == 23000) {
+                return redirect()->route('fornecedor.index')->with('error', 'Não foi possível excluir o fornecedor porque existem registros vinculados a ele em outras tabelas.');
+            }
+            return redirect()->route('fornecedor.index')->with('error', '$e->getMessage()');
+        }
     }
 }

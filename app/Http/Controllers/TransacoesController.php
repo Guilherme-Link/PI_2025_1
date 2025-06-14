@@ -77,7 +77,7 @@ class TransacoesController extends Controller
 
         }
 
-        // Retorna à lista de transações
+        // Retorna a lista de transações
         $transacoes = Transacoes::all();
         return view('listaTransacoes', compact('transacoes'));
     }
@@ -111,8 +111,12 @@ class TransacoesController extends Controller
      */
     public function destroy(Transacoes $transacao)
     {
-        $transacao->items_transacao()->delete();
-        $transacao->delete();
-        return redirect()->route('transacao.index');
+        try {
+            $transacao->items_transacao()->delete();
+            $transacao->delete();
+            return redirect()->route('transacao.index')->with('success', 'Transação excluída com sucesso!');
+        } catch (\Exception $e) {
+            return redirect()->route('fornecedor.index')->with('error', $e->getMessage());
+        }
     }
 }

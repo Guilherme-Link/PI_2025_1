@@ -59,13 +59,7 @@
         </div>
       </div>
     </div>
-
     @include('modalDeleteTransacao')
-
-    @if(session('success'))
-      <script>
-        alert('{{ session('success') }}');
-      </script>
-    @endif
+    @include('modalTriste')
   </body>
 </html>

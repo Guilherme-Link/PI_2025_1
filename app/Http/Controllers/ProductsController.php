@@ -35,7 +35,7 @@ class ProductsController extends Controller
             $product = $request->all();
             $product['quantidade'] = 0;
             $productCreated = Produto::create($product);
-            return redirect('/listarProduto');->with('success', 'Produto cadastrado com sucesso!');
+            return redirect('/listarProduto')->with('success', 'Produto cadastrado com sucesso!');
         } catch (\Exception $e) {
             return redirect()->route('product.index')->with('error', 'Erro ao cadastrar o produto.');
         }

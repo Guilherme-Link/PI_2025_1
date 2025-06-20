@@ -3,9 +3,8 @@
         <h1>Confirmar Exclusão</h1>
         <p>Tem certeza que deseja excluir esta transação?<br>Esta ação não pode ser desfeita.</p>
         <div class="modal-actions">
-
             <button class="btn-cancel" onclick="closeDeleteTransacaoModal()">Cancelar</button>
-            <form id="deleteTransacaoForm" action="" method="POST" style="display: inline;">
+            <form id="deleteForm" action="" method="POST" style="display: inline;">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn-confirm">Confirmar</button>
@@ -15,22 +14,22 @@
 </div>
 
 <script>
-    function showDeleteTransacaoModal(url) {
-        document.getElementById('deleteTransacaoForm').action = url;
-        document.getElementById('modalDeleteTransacao').style.display = 'flex';
+    function showDeleteModal(url) {
+        document.getElementById('deleteForm').action = url;
+        document.getElementById('deleteConfirmationModal').style.display = 'flex';
     }
 
-    function closeDeleteTransacaoModal() {
-        document.getElementById('modalDeleteTransacao').style.display = 'none';
-        document.getElementById('deleteTransacaoForm').action = '';
+    function closeModal() {
+        document.getElementById('deleteConfirmationModal').style.display = 'none';
+        document.getElementById('deleteForm').action = '';
     }
 
     window.onclick = function(event) {
-        const modal = document.getElementById('modalDeleteTransacao');
+        const modal = document.getElementById('deleteConfirmationModal');
         if (event.target === modal) {
-            closeDeleteTransacaoModal();
+            closeModal();
         }
     }
 
-    document.querySelector('.btn-cancel').addEventListener('click', closeDeleteTransacaoModal);
+    document.querySelector('.btn-cancel').addEventListener('click', closeModal);
 </script>
